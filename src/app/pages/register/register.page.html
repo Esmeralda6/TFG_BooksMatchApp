@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+  <div class="auth-container">
+
+    <div class="header-section">
+      <h1 class="serif-text title">Booksmatch</h1>
+    </div>
+
+    <div class="tab-header">
+      <!--<div class="tab" routerLink="/login">LOGIN</div>-->
+      <div class="tab active">SIGN UP</div>
+    </div>
+
+    <form class="auth-form">
+
+      <div class="input-group">
+        <label>FULL NAME</label>
+        <ion-item lines="none" class="custom-input">
+          <ion-input type="text" placeholder="Your full name" [(ngModel)]="name" name="name"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="input-group">
+        <label>EMAIL ADDRESS</label>
+        <ion-item lines="none" class="custom-input">
+          <ion-input type="email" placeholder="your@sanctuary.com" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="input-group">
+        <label>PASSWORD</label>
+        <ion-item lines="none" class="custom-input">
+          <ion-input type="password" placeholder="********" [(ngModel)]="pass" name="pass"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="input-group">
+        <label>CONFIRM PASSWORD</label>
+        <ion-item lines="none" class="custom-input">
+          <ion-input type="password" placeholder="********" [(ngModel)]="confirmPass" name="confirmPass"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-button expand="block" mode="ios" class="btn-join" (click)="signUp()">
+        Join BooksMatch <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+      </ion-button>
+    </form>
+
+    <div class="divider">OR CONTINUE WITH</div>
+
+    <div class="social-buttons">
+      <ion-button fill="outline" mode="ios" class="social-btn">
+        <img src="assets/images/google.svg" class="social-icon">
+        <span>Google</span>
+      </ion-button>
+
+      <ion-button fill="outline" mode="ios" class="social-btn">
+        <img src="assets/images/facebook.svg" class="social-icon">
+        <span>Facebook</span>
+      </ion-button>
+    </div>
+
+    <p class="footer-text">
+      By creating an account, you agree to our <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.
+    </p>
+  </div>
+</ion-content>

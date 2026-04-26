@@ -1,0 +1,64 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <div class="header-section">
+      <h1 class="serif-text title">Booksmatch</h1>
+      <p class="serif-text italic subtitle">The Modern Bibliophile's Sanctuary</p>
+    </div>
+
+    <div class="tab-header">
+      <div class="tab active">LOGIN</div>
+    </div>
+
+    <form class="login-form">
+      <div class="input-group">
+        <label>EMAIL ADDRESS</label>
+        <ion-item lines="none" class="custom-input">
+          <ion-input
+            type="email"
+            placeholder="youremail@email.com"
+            [(ngModel)]="email"
+            name="email">
+          </ion-input>
+
+        </ion-item>
+      </div>
+
+      <div class="input-group">
+        <div class="label-row">
+          <label>PASSWORD</label>
+          <!--<span class="forgot">FORGOT?</span>-->
+        </div>
+        <ion-item lines="none" class="custom-input">
+          <ion-input
+            type="password"
+            placeholder="********"
+            [(ngModel)]="pass"
+            name="pass">
+          </ion-input>          <ion-icon name="eye-outline" slot="end" class="eye-icon"></ion-icon>
+        </ion-item>
+      </div>
+
+      <ion-button expand="block" mode="ios" class="btn-enter" (click)="irAInicio()">
+        Iniciar Sesión <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+      </ion-button>
+    </form>
+
+    <div class="divider">OR CONTINUE WITH</div>
+
+    <div class="social-buttons">
+      <ion-button fill="outline" mode="ios" class="social-btn">
+        <img src="assets/images/google.svg" class="social-icon">
+        <span>Google</span>
+      </ion-button>
+
+      <ion-button fill="outline" mode="ios" class="social-btn">
+        <img src="assets/images/facebook.svg" class="social-icon">
+        <span>Facebook</span>
+      </ion-button>
+    </div>
+
+    <p class="footer-text">
+      By entering, you agree to our <strong>BooksMatch's Terms</strong> and <strong>Privacy Policy</strong>.
+    </p>
+  </div>
+</ion-content>

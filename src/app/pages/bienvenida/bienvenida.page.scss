@@ -1,0 +1,100 @@
+// Variables de color
+$primary-color: #894b61;
+$rosa-pastel: #ffb1ca;
+$azul-marino: #314671;
+$azul-pastel: #b7ccfe;
+
+ion-content {
+  --background: #fdf8fd;
+  // Esto ayuda a que el contenido flex ocupe todo el alto real
+  --display: flex;
+  --align-items: center;
+  --justify-content: center;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; // Centrado vertical total
+  min-height: 100%;        // Ocupa todo el alto disponible
+  width: 100%;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;      // Asegura que todos los textos se centren
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px; // Limitamos el ancho para que los botones no se estiren demasiado
+  z-index: 10;
+}
+
+// Logo centrado y redondeado
+.app-logo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(137, 75, 97, 0.1);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Newsreader', serif !important;
+  color: $primary-color !important;
+  font-size: 3.5rem;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+// Botones: Aquí está el cambio del recuadro
+.button-group {
+  width: 100%; // Se adaptará al max-width de 320px de arriba
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // Espacio entre los dos botones
+}
+
+.btn-primary, .btn-secondary {
+  --border-radius: 25px;
+  --color: #{$azul-marino};
+  font-weight: 800;
+  height: 60px;
+  margin: 0; // Quitamos márgenes para que el 'gap' del padre mande
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  --background: #{$rosa-pastel};
+}
+
+.btn-secondary {
+  /* Ahora con recuadro azul pastel */
+  --background: #{$azul-pastel};
+}
+
+// Estilos de texto
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #514347;
+  margin: 20px 0;
+}
+
+.accent {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+  &-top { top: -150px; right: -150px; background: $rosa-pastel; }
+  &-bottom { bottom: -150px; left: -150px; background: $azul-pastel; }
+}

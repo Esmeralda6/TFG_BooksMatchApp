@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Esto va FUERA de cualquier carpeta, en el raíz de src */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;1,400&family=Manrope:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #fdf8fd !important; /* El rosa de Booksmatch */
+  font-family: 'Manrope', sans-serif;
+}

@@ -1,0 +1,100 @@
+$gradient-main: linear-gradient(to right, #894b61, #ffb1ca);
+$text-dark: #314671;
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 25px;
+  min-height: 100%;
+  background: white;
+}
+
+.title { font-size: 3.5rem; color: #1c1b1f; margin-bottom: 5px; }
+.subtitle { color: #894b61; font-size: 1.2rem; margin-bottom: 40px; }
+
+.tab-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+
+  .tab {
+    padding-bottom: 10px;
+    font-weight: 800;
+    color: #999;
+    letter-spacing: 1px;
+    &.active {
+      color: $text-dark;
+      border-bottom: 3px solid #894b61;
+    }
+  }
+}
+
+.login-form { width: 100%; }
+
+.input-group {
+  margin-bottom: 25px;
+  label { font-size: 0.75rem; font-weight: 800; color: #444; letter-spacing: 1px; }
+}
+
+.custom-input {
+  --background: #f8f9fa;
+  --border-radius: 12px;
+  --padding-start: 15px;
+  margin-top: 8px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.btn-enter {
+  --background: #{$gradient-main};
+  --border-radius: 30px;
+  --color: white;
+  height: 60px;
+  font-weight: 700;
+  margin-top: 30px;
+  box-shadow: 0 10px 20px rgba(137, 75, 97, 0.3);
+}
+
+.divider {
+  margin: 30px 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #999;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.social-buttons {
+  display: flex;
+  gap: 15px; // Espacio entre los dos botones
+  width: 100%;
+  margin-top: 20px;
+
+  .social-btn {
+    flex: 1;
+    --border-color: #eee;
+    --border-radius: 15px;
+    --color: #444;
+    height: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    // Centrar el contenido dentro del botón
+    display: flex;
+    align-items: center;
+  }
+}
+
+// ESTO ES LO IMPORTANTE
+.social-icon {
+  width: 20px;          // Tamaño pequeño y fijo
+  height: 20px;         // Tamaño pequeño y fijo
+  margin-right: 10px;   // Separación con el texto
+  object-fit: contain;  // Para que no se deforme
+}
+
+

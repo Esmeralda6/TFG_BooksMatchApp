@@ -1,0 +1,110 @@
+$gradient-btn: linear-gradient(to right, #894b61, #ffb1ca);
+$navy: #314671;
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 25px;
+  background: white;
+  text-align: center;
+}
+
+.title { font-size: 3.5rem; color: #1c1b1f; margin-bottom: 0; }
+.subtitle { color: #894b61; font-size: 1.1rem; margin-bottom: 30px; }
+
+.tab-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
+
+  .tab {
+    padding-bottom: 12px;
+    font-weight: 800;
+    color: #b5b5b5;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    &.active {
+      color: $navy;
+      border-bottom: 3px solid #894b61;
+    }
+  }
+}
+
+.auth-form { width: 100%; }
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+  label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: 1px;
+    padding-left: 5px;
+  }
+}
+
+.custom-input {
+  --background: #fdf8fd; // Rosa casi blanco
+  --border-radius: 12px;
+  margin-top: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+}
+
+.btn-join {
+  --background: #{$gradient-btn};
+  --border-radius: 30px;
+  --color: white;
+  height: 58px;
+  font-weight: 700;
+  margin-top: 30px;
+  box-shadow: 0 8px 15px rgba(137, 75, 97, 0.2);
+}
+
+.divider {
+  margin: 30px 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px; // Espacio entre los dos botones
+  width: 100%;
+  margin-top: 20px;
+
+  .social-btn {
+    flex: 1;
+    --border-color: #eee;
+    --border-radius: 15px;
+    --color: #444;
+    height: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    // Centrar el contenido dentro del botón
+    display: flex;
+    align-items: center;
+  }
+}
+
+// ESTO ES LO IMPORTANTE
+.social-icon {
+  width: 20px;          // Tamaño pequeño y fijo
+  height: 20px;         // Tamaño pequeño y fijo
+  margin-right: 10px;   // Separación con el texto
+  object-fit: contain;  // Para que no se deforme
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 40px;
+  line-height: 1.4;
+}
