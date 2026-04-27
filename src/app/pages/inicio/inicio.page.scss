@@ -1,0 +1,157 @@
+// Paleta de colores
+$primary: #894b61;
+$accent: #ffb1ca;
+$bg-light: #fdf8fd;
+$bg-cinema: #f4eff5;
+
+.main-container {
+  padding: 0;
+  background: $bg-light;
+}
+
+// Estilo del Header/Logo
+ion-toolbar {
+  --background: #{$bg-light};
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  ion-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $primary;
+  }
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border: 2px solid $accent;
+}
+
+// Hero Novedades
+.hero-header {
+  padding: 30px 24px 10px;
+  .tag {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: $primary;
+  }
+  .main-title {
+    font-size: 4.2rem;
+    line-height: 0.9;
+    margin: 5px 0;
+  }
+}
+
+// Carrusel de Libros
+.novedades-slide {
+  .horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 24px 40px;
+    gap: 25px;
+    &::-webkit-scrollbar { display: none; }
+
+    .book-card-slide {
+      min-width: 250px;
+      .image-container {
+        height: 380px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(137, 75, 97, 0.15);
+        margin-bottom: 15px;
+        position: relative;
+        img { width: 100%; height: 100%; object-fit: cover; }
+      }
+      h4 { font-size: 1.4rem; color: #1c1b1f; margin: 0; }
+      p { font-size: 1rem; color: #666; margin: 4px 0; }
+    }
+  }
+}
+
+.badge-new {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #735c00, #eac34a);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+// Sección de Cine (Cambio de diseño)
+.cinema-section {
+  padding: 50px 24px;
+  background: $bg-cinema;
+  border-radius: 40px 40px 0 0;
+
+  .section-title {
+    margin-bottom: 30px;
+    h3 { font-size: 2.6rem; line-height: 1; color: #314671; }
+    .line {
+      display: block;
+      width: 60px;
+      height: 5px;
+      background: $accent;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.cinema-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .movie-card {
+    position: relative;
+    height: 250px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+    .movie-bg { width: 100%; height: 100%; object-fit: cover; }
+
+    .movie-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 20%, transparent);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+
+      .platform-tag { font-size: 0.7rem; color: $accent; font-weight: 700; }
+      h4 { font-size: 1.8rem; margin: 5px 0; }
+      .btn-more { --color: white; font-weight: 600; margin: 0; padding: 0; }
+    }
+  }
+}
+
+// BOTÓN FLOTANTE
+.match-fab-container {
+  position: fixed;
+  bottom: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+
+  .btn-match-vibrant {
+    --background: linear-gradient(135deg, #894b61 0%, #ffb1ca 100%);
+    --color: white;
+    --border-radius: 35px;
+    --box-shadow: 0 15px 35px rgba(137, 75, 97, 0.4);
+    height: 70px;
+    width: 85%;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+}
+
+.footer-spacer { height: 160px; }

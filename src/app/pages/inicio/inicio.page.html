@@ -1,13 +1,90 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>inicio</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="serif-text italic">Booksmatch</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar class="user-avatar">
+        <img src="assets/images/user.jpeg" alt="Perfil" />
+      </ion-avatar>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="main-container">
+
+    <header class="hero-header">
+      <span class="tag">EDICIÓN SEMANAL</span>
+      <h2 class="serif-text italic title">¡Novedades!</h2>
+    </header>
+
+    <section class="novedades-slide">
+      <div class="horizontal-scroll">
+        @for (book of books; track book.title) {
+          <div class="book-card-slide">
+            <div class="image-container">
+              <img [src]="book.cover" [alt]="book.title">
+              @if (book.new) { <span class="badge-new">NUEVO</span> }
+            </div>
+            <h4 class="serif-text">{{ book.title }}</h4>
+            <p>{{ book.author }}</p>
+          </div>
+        } @empty {
+          <p class="empty-msg">No hay libros nuevos esta semana.</p>
+        }
+      </div>
+    </section>
+
+    <section class="cinema-section">
+      <div class="section-title">
+        <h3 class="serif-text italic">De la Página<br>a la Pantalla</h3>
+        <span class="line"></span>
+      </div>
+
+      <div class="cinema-grid">
+        @for (movie of movies; track movie.title) {
+          <div class="movie-card">
+            <img [src]="movie.img" class="movie-bg">
+            <div class="movie-overlay">
+              <span class="platform-tag">{{ movie.platform }}</span>
+              <h4 class="serif-text">{{ movie.title }}</h4>
+              <ion-button fill="clear" size="small" class="btn-more">
+                Ver más <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <div class="footer-spacer"></div>
+  </div>
+
+  <div class="match-fab-container">
+    <ion-button mode="ios" class="btn-match-vibrant">
+      <ion-icon name="heart" slot="start"></ion-icon>
+      ¡HAZ TU MATCH!
+      <ion-icon name="book-outline" slot="end"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+    <ion-tab-button tab="curated">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>SELECCIONADO</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="discover">
+      <ion-icon name="compass"></ion-icon>
+      <ion-label>DESCUBRIR</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="library">
+      <ion-icon name="library"></ion-icon>
+      <ion-label>BIBLIOTECA</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
