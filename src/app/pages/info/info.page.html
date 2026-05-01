@@ -1,13 +1,90 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>info</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar title="Booksmatch"></app-navbar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">info</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="paper-texture">
+  <div class="gradient-bg"></div>
+
+  <div class="main-container">
+    <header class="info-header">
+      <img src="assets/images/logoBooksMatch.png" alt="BooksMatch Logo" class="app-logo">
+      <div class="divider-gradient"></div>
+    </header>
+
+    <main class="content-wrapper">
+      <section class="hero-section">
+        <h1 class="serif-text italic main-headline">
+          YOUR LITERARY SOULMATE
+        </h1>
+        <p class="body-text">
+          Booksmatch is more than an algorithm. It is a digital place where your personal aesthetic meets the timeless world of literature.
+        </p>
+      </section>
+
+      <div class="features-column">
+        <div class="feature-card card-light">
+          <ion-icon name="book" class="icon-primary"></ion-icon>
+          <h3 class="serif-text">BooksMatch</h3>
+          <p>Our sophisticated engine analyzes the DNA of your taste. We don't just look at what you read; we look at who you are.</p>
+        </div>
+
+        <div class="feature-card card-dim">
+          <ion-icon name="sparkles" class="icon-tertiary"></ion-icon>
+          <h3 class="serif-text">Precision Matching</h3>
+          <p>Forget generic bestseller lists. We filter millions of titles to find the one book that speaks your language.</p>
+        </div>
+      </div>
+
+      <section class="pillars-section">
+        <div class="section-divider">
+          <span class="line"></span>
+          <h2 class="label-text">The 4 Pillars of Taste</h2>
+          <span class="line"></span>
+        </div>
+
+        <div class="pillars-column">
+          <div class="pillar-item">
+            <ion-icon name="color-palette"></ion-icon>
+            <span class="serif-text italic">Hobbies</span>
+            <div class="dot-accent"></div>
+          </div>
+          <div class="pillar-item">
+            <ion-icon name="musical-notes-outline"></ion-icon>
+            <span class="serif-text italic">Music</span>
+            <div class="dot-accent"></div>
+          </div>
+          <div class="pillar-item">
+            <ion-icon name="videocam-outline"></ion-icon>
+            <span class="serif-text italic">Movies</span>
+            <div class="dot-accent"></div>
+          </div>
+          <div class="pillar-item">
+            <ion-icon name="tv-outline"></ion-icon>
+            <span class="serif-text italic">TV Shows</span>
+            <div class="dot-accent"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner">
+        <div class="cta-content">
+          <blockquote class="serif-text italic">
+            "A book must be the axe for the frozen sea within us."
+            <cite>— Franz Kafka</cite>
+          </blockquote>
+          <p>Let Booksmatch find the book that will change your perspective.</p>
+          <ion-button (click)="goBack()" mode="ios" class="btn-start">
+            START YOUR CURATION
+          </ion-button>
+        </div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </section>
+    </main>
+
+    <footer class="info-footer">
+      <button class="btn-close" (click)="goBack()">CLOSE INFORMATION</button>
+      <div class="dot-group">
+        <span></span><span></span><span></span>
+      </div>
+    </footer>
+  </div>
 </ion-content>

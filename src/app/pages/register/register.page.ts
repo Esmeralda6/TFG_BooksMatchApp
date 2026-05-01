@@ -13,6 +13,7 @@ import {
 } from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
 import {ToastController} from "@ionic/angular";
+import {UserService} from "../../service/user-service";
 
 @Component({
   selector: 'app-register',
@@ -23,9 +24,9 @@ import {ToastController} from "@ionic/angular";
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private router: Router, private toast: ToastController) { }
+  constructor(private router: Router, private toast: ToastController, private userService: UserService) { }
 
-  ngOnInit() {} // No olvides añadir el OnInit si implementas la interfaz
+  ngOnInit() {}
 
   name: string = '';
   email: string = '';
@@ -36,6 +37,7 @@ export class RegisterPage implements OnInit {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const namePattern = /^[a-zA-Z ]+$/;
 
+    // Validaciones
     if (!namePattern.test(this.name)) {
       this.mostrarError('El nombre solo debe contener letras');
       return;
@@ -56,17 +58,21 @@ export class RegisterPage implements OnInit {
       return;
     }
 
+    // --- EL CAMBIO ESTÁ AQUÍ ---
+    // Guardamos 'this.name', que es el valor de la variable vinculada al input
+    this.userService.setUserName(this.name);
+
+    // Una sola redirección (elige a dónde quieres que vaya el usuario al registrarse)
     this.router.navigate(['/inicio']);
   }
 
-  // --- AÑADE ESTA FUNCIÓN AQUÍ ABAJO ---
   async mostrarError(msg: string) {
     const toast = await this.toast.create({
       message: msg,
       duration: 2000,
       color: 'danger',
       position: 'top',
-      mode: 'ios' // Para que se vea bonito y redondeado como tu diseño
+      mode: 'ios'
     });
     toast.present();
   }

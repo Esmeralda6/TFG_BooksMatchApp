@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IonAvatar, IonButtons, IonHeader, IonMenuButton, IonTitle, IonToolbar} from "@ionic/angular/standalone";
 import {Input} from "postcss";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,8 @@ import {Input} from "postcss";
     IonToolbar,
     IonMenuButton,
     IonTitle,
-    IonAvatar
+    IonAvatar,
+    RouterLink
   ]
 })
 export class NavbarComponent  implements OnInit {

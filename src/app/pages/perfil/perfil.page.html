@@ -1,13 +1,94 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio" text="Volver" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">PERFIL</ion-title>
+    <ion-buttons slot="end">
+      <div style="width: 48px"></div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="paper-texture">
+  <main class="profile-container">
+
+    <section class="profile-header">
+      <div class="avatar-container">
+        <div class="glow-ring"></div>
+        <img src="assets/images/user.jpeg" alt="El Curator" class="main-avatar">
+      </div>
+
+      <div class="profile-info">
+        <div class="name-badge-row">
+          <h2 class="serif-text">{{nombreUsuario}}</h2>
+          <span class="badge-gold">
+            <ion-icon name="workspace-premium"></ion-icon>
+            Lector Premium - Oro
+          </span>
+        </div>
+        <p class="tagline serif-text italic">"En busca de la página perfecta."</p>
+
+        <div class="action-buttons">
+          <ion-button mode="ios" class="btn-primary">Editar Perfil</ion-button>
+          <ion-button mode="ios" fill="clear" class="btn-secondary">Preferencias</ion-button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value serif-text">128</span>
+        <span class="stat-label">Libros Leídos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value serif-text">15</span>
+        <span class="stat-label">Colecciones</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value serif-text">42</span>
+        <span class="stat-label">Reseñas</span>
+      </div>
+    </section>
+
+    <section class="quote-box">
+      <blockquote class="serif-text italic">
+        "La lectura es una conversación. Todos los libros hablan. Pero un buen libro también escucha."
+      </blockquote>
+      <div class="achievements-link">
+        <ion-icon name="military-tech" class="icon-gold"></ion-icon>
+        <span>Mis Logros: 'Maestro de lo Clásico' +5</span>
+      </div>
+    </section>
+
+    <section class="library-section">
+      <div class="section-header">
+        <div>
+          <h3 class="serif-text">Mi Biblioteca</h3>
+          <p>Joyas literarias recientes</p>
+        </div>
+        <a class="view-all">Ver Todo <ion-icon name="chevron-right-outline"></ion-icon></a>
+      </div>
+
+      <div class="books-grid">
+        <div class="book-item">
+          <div class="book-cover-wrapper">
+            <div class="asymmetric-bg"></div>
+            <img src="assets/books/gatsby.jpg" alt="El Gran Gatsby">
+          </div>
+          <h4>El Gran Gatsby</h4>
+          <p>F. Scott Fitzgerald</p>
+        </div>
+        <div class="book-item">
+          <div class="book-cover-wrapper">
+            <div class="asymmetric-bg"></div>
+            <img src="assets/books/sapiens.jpg" alt="Sapiens">
+          </div>
+          <h4>Sapiens</h4>
+          <p>Yuval Noah Harari</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </ion-content>
