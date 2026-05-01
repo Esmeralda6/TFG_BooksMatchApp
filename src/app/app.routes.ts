@@ -27,4 +27,16 @@ export const routes: Routes = [
     path: 'categorias',
     loadComponent: () => import('./pages/categorias/categorias.page').then( m => m.CategoriasPage)
   },
+  {
+    path: 'info',
+    loadComponent: () => import('./pages/info/info.page').then( m => m.InfoPage)
+  },
+  {
+    path: 'sostenibilidad',
+    loadComponent: () => import('./pages/sostenibilidad/sostenibilidad.page').then( m => m.SostenibilidadPage)
+  },
+  {
+    path: 'perfil',
+    loadComponent: () => import('./pages/perfil/perfil.page').then( m => m.PerfilPage)
+  },
 ];

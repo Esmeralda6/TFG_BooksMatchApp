@@ -15,13 +15,14 @@ import {
 } from '@ionic/angular/standalone';
 import {getSrc} from "ionicons/dist/types/components/icon/utils";
 import {Router} from "@angular/router";
+import {NavbarComponent} from "../../components/navbar/navbar.component";
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonLabel, IonIcon, IonTabButton, IonFooter, IonTabBar, IonButton, IonButtons, IonMenuButton, IonAvatar]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonLabel, IonIcon, IonTabButton, IonFooter, IonTabBar, IonButton, IonButtons, IonMenuButton, IonAvatar, NavbarComponent]
 })
 export class InicioPage implements OnInit {
 

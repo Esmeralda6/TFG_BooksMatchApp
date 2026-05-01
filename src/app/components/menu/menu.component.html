@@ -1,0 +1,31 @@
+<ion-menu contentId="main-content" side="start" menuId="menu">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title class="serif-text italic">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list lines="none">
+      <ion-item [button]="true" routerLink="/inicio">
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-item>
+
+      <ion-item [button]="true" routerLink="/categorias">
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        <ion-label>Categorías</ion-label>
+      </ion-item>
+
+      <ion-item [button]="true" routerLink="/sostenibilidad">
+        <ion-icon name="leaf" slot="start"></ion-icon>
+        <ion-label>¡Dale una 2ª vida a tus libros!</ion-label>
+      </ion-item>
+
+      <ion-item [button]="true" routerLink="/info">
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+        <ion-label>Sobre BooksMatch</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
