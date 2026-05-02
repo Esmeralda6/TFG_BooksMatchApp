@@ -67,28 +67,51 @@
           <h3 class="serif-text">Mi Biblioteca</h3>
           <p>Joyas literarias recientes</p>
         </div>
-        <a class="view-all">Ver Todo <ion-icon name="chevron-right-outline"></ion-icon></a>
+        <a class="view-all" id="open-library-modal">
+          Ver Todo <ion-icon name="chevron-right-outline"></ion-icon>
+        </a>
       </div>
 
       <div class="books-grid">
-        <div class="book-item">
-          <div class="book-cover-wrapper">
-            <div class="asymmetric-bg"></div>
-            <img src="assets/books/gatsby.jpg" alt="El Gran Gatsby">
+        @for (book of books.slice(0, 2); track book.title) {
+          <div class="book-item">
+            <div class="book-cover-wrapper">
+              <div class="asymmetric-bg"></div>
+              <img [src]="book.img" [alt]="book.title">
+            </div>
+            <h4>{{ book.title }}</h4>
+            <p>{{ book.author }}</p>
           </div>
-          <h4>El Gran Gatsby</h4>
-          <p>F. Scott Fitzgerald</p>
-        </div>
-        <div class="book-item">
-          <div class="book-cover-wrapper">
-            <div class="asymmetric-bg"></div>
-            <img src="assets/books/sapiens.jpg" alt="Sapiens">
-          </div>
-          <h4>Sapiens</h4>
-          <p>Yuval Noah Harari</p>
-        </div>
+        }
       </div>
     </section>
 
+    <ion-modal trigger="open-library-modal" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.5, 0.75, 1]">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title class="serif-text">Toda mi biblioteca</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()" color="primary">Cerrar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <div class="books-grid modal-grid">
+            @for (book of books; track book.title) {
+              <div class="book-item">
+                <div class="book-cover-wrapper">
+                  <div class="asymmetric-bg"></div>
+                  <img [src]="book.img" [alt]="book.title">
+                </div>
+                <h4>{{ book.title }}</h4>
+                <p>{{ book.author }}</p>
+              </div>
+            }
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   </main>
 </ion-content>
