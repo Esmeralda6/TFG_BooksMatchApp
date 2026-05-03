@@ -162,3 +162,31 @@ $tertiary: #eac34a;
     font-size: 28px; // Tamaño del icono dentro del círculo
   }
 }
+
+.btn-post {
+  // Forzamos el color rosa de tu marca
+  --background: #894b61;
+  --background-activated: #6d344a;
+  --background-focused: #6d344a;
+  --color: white;
+
+  margin-top: 25px;
+  height: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  // Si quieres el degradado que usaste en el FAB:
+  // --background: linear-gradient(to right, #894b61, #ffb1ca);
+}
+
+// Ajuste para el placeholder de la imagen
+.image-upload-placeholder {
+  border: 2px dashed #894b61; // Borde rosa
+  color: #894b61;
+  background: #fdf8fd;
+
+  ion-icon {
+    color: #894b61;
+  }
+}

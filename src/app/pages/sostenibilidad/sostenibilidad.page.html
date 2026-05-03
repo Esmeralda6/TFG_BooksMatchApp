@@ -46,6 +46,11 @@
 
               <span class="location">{{ book.location }}</span>
             </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <ion-button fill="clear" color="danger" (click)="borrarLibro(book.title)" size="small">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
           </div>
         </div>
       } @empty {
