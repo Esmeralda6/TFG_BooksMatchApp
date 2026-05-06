@@ -1,0 +1,153 @@
+// 1. IMPORTACIÓN DE FUENTES Y VARIABLES
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,600&family=Manrope:wght@400;700&display=swap');
+
+:root {
+  --ion-color-primary: #894b61;
+}
+
+// 2. CONTENEDOR PRINCIPAL (Márgenes y Padding de la pantalla)
+.container-wrapper {
+  padding: 32px 24px; // Separa el contenido de los bordes del móvil
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  margin-bottom: 40px;
+
+  .serif-title {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: #1c1b1f;
+    .highlight { color: #894b61; }
+  }
+
+  .subtitle {
+    font-family: 'Manrope', sans-serif;
+    color: #514347;
+    margin-top: 12px;
+    font-size: 1.1rem;
+  }
+}
+
+// 3. CONFIGURACIÓN DEL GRID (Espacio ENTRE tarjetas)
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px; // Espacio real entre las cards
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+// 4. ESTILO BASE DE LAS CARDS
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card {
+  position: relative;
+  height: 260px;
+  border-radius: 32px; // Súper redondeado
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  .card-inner {
+    position: relative;
+    z-index: 10;
+    padding: 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+
+    ion-icon {
+      font-size: 48px; // Aumenta aquí el tamaño a tu gusto (48px, 64px, etc.)
+      color: #ffffff !important; // Fuerza el color blanco
+      margin-bottom: 15px; // Separa un poco el icono del texto si están muy pegados
+
+      // Opcional: Un toque de sombra suave para que resalte más sobre colores claros
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+  }
+}
+
+// 5. ELEMENTOS INTERNOS (Iconos y Textos)
+.icon-box {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ion-icon { font-size: 24px; }
+}
+
+.title {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 2.3rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+// 6. COLORES PERSONALIZADOS PARA CADA CARD
+.card-hobbies {
+  background-color: #d81b60; // Fucsia
+  ion-icon, .title, .label { color: #ffffff; }
+}
+
+.card-music {
+  background-color: #ffcc80; // Naranja Pastel
+  ion-icon, .title { color: #e65100; }
+}
+
+.card-series {
+  background-color: #80cbc4; // Turquesa
+  ion-icon, .title { color: #004d40; }
+}
+
+.card-movies {
+  background-color: #ce93d8; // Lila
+  ion-icon, .title { color: #4a148c; }
+}
+
+// 7. IMAGEN DE FONDO (Opcional para Hobbies)
+.card-bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}

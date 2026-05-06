@@ -1,10 +1,51 @@
 <app-navbar title="Booksmatch"></app-navbar>
 
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">categorias</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-wrapper">
+
+    <header class="header-section">
+      <h2 class="serif-title">
+        ¿Sobre qué quieres tu <span class="highlight">match</span>?
+      </h2>
+      <p class="subtitle">
+        Selecciona tu fuente de inspiración actual y deja que la curaduría literaria haga el resto.
+      </p>
+    </header>
+
+    <div class="bento-grid">
+
+      <button (click)="navegarACategoria('Hobbies')" class="card card-hobbies md:col-span-7">
+        <div class="card-inner">
+          <ion-icon name="color-palette"></ion-icon>
+
+          <div class="card-footer">
+            <!--<span class="label">Pasiones y Oficios</span>-->
+            <h3 class="title">HOBBIES</h3>
+          </div>
+        </div>
+      </button>
+
+      <button (click)="navegarACategoria('Música')" class="card card-music md:col-span-5">
+        <div class="card-inner">
+          <ion-icon name="musical-notes"></ion-icon>
+          <h3 class="title">MÚSICA</h3>
+        </div>
+      </button>
+
+      <button (click)="navegarACategoria('Series')" class="card card-series md:col-span-5">
+        <div class="card-inner">
+          <ion-icon name="laptop"></ion-icon>
+          <h3 class="title">SERIES</h3>
+        </div>
+      </button>
+
+      <button (click)="navegarACategoria('Películas')" class="card card-movies md:col-span-7">
+        <div class="card-inner">
+          <ion-icon name="desktop"></ion-icon>
+          <h3 class="title">PELÍCULAS</h3>
+        </div>
+      </button>
+
+    </div>
+  </div>
 </ion-content>

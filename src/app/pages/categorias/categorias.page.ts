@@ -1,7 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import {Component, inject, OnInit} from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import {
+  colorPalette, desktop,
+  extensionPuzzleOutline, laptop,
+  musicalNotes,
+  musicalNotesOutline,
+  tvOutline,
+  videocamOutline
+} from 'ionicons/icons';
+import {IonContent, IonIcon, IonMenuButton} from "@ionic/angular/standalone";
 import {NavbarComponent} from "../../components/navbar/navbar.component";
 
 @Component({
@@ -9,13 +17,33 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
   templateUrl: './categorias.page.html',
   styleUrls: ['./categorias.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, NavbarComponent]
+  imports: [
+    IonContent,
+    NavbarComponent,
+    IonIcon
+  ],
+  // No olvides importar los módulos de Ionic necesarios
 })
 export class CategoriasPage implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
+  private navCtrl = inject(NavController);
 
+  constructor() {
+    addIcons({
+      extensionPuzzleOutline,
+      musicalNotesOutline,
+      tvOutline,
+      videocamOutline,
+      colorPalette,
+      musicalNotes,
+      laptop,
+      desktop
+    });
+  }
+
+  navegarACategoria(nombre: string) {
+    console.log('Filtrando por:', nombre);
+    this.navCtrl.navigateForward(['/explorar', { categoria: nombre }]);  }
 }
