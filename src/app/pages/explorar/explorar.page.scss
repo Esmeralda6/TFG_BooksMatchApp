@@ -133,6 +133,22 @@
   border: 1px solid #fdf2f8;
   box-shadow: 0 8px 24px rgba(137, 75, 97, 0.05);
   transition: all 0.3s ease;
+  margin-bottom: 20px; /* Separación extra por si el grid falla */
+
+  border-radius: 28px;
+
+
+
+  &:hover {
+    transform: translateY(-5px); /* Efecto de levante al pasar el ratón */
+    box-shadow: 0 15px 35px rgba(137, 75, 97, 0.12);
+  }
+
+  &.is-expanded {
+    margin-top: 10px;    /* Espacio extra cuando se abre */
+    margin-bottom: 30px;
+    border-color: #fbcfe8;
+  }
 
   &.is-expanded {
     border-color: #fbcfe8;
@@ -187,4 +203,17 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+.description-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;        /* Un poco de espacio entre líneas para que sea legible */
+  color: #4b5563;          /* Gris suave */
+  font-style: italic;
+  margin-bottom: 1rem;
+
+  /* ESTO ES LO QUE JUSTIFICA EL TEXTO */
+  text-align: justify;
+  text-justify: inter-word; /* Mejora el espaciado entre palabras */
+  hyphens: auto;           /* Corta las palabras con guiones si es necesario (opcional) */
 }

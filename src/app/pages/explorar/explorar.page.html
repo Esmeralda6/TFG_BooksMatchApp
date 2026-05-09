@@ -5,7 +5,7 @@
 
     <header class="header-section">
       <h2 class="serif-title">Explorar {{ categoriaSeleccionada }}</h2>
-      <p class="subtitle">Escribe un artista, canción o hobby para encontrar tu match.</p>
+      <p class="subtitle">Escribe para encontrar tu match.</p>
     </header>
 
     <div class="search-container mb-8">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-8">
 
       @for (libro of librosMostrados; track libro._id) {
         <div class="book-card" (click)="toggleLibro(libro)" [class.is-expanded]="libro.expandido">
@@ -53,7 +53,7 @@
           @if (libro.expandido) {
             <div class="expanded-content mt-6 pt-6 border-t border-gray-100">
 
-              <p class="text-sm text-gray-600 font-sans italic mb-4">
+              <p class="text-sm text-gray-600 font-sans italic mb-4 description-text">
                 "{{ libro.descripcion }}"
               </p>
 
