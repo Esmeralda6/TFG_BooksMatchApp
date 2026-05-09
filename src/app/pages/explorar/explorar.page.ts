@@ -86,7 +86,7 @@ export class ExplorarPage implements OnInit {
     if (libro.urlCompra) {
       window.open(libro.urlCompra, '_blank');
     } else {
-      // Plan B: Si por algún motivo no hay link, que use el buscador automático
+      // Si no hay link, usa el buscador automático
       const query = encodeURIComponent(`${libro.titulo} ${libro.autor}`);
       window.open(`https://www.casadellibro.com/busqueda/generica?busqueda=${query}`, '_blank');
     }
