@@ -19,14 +19,12 @@ import {FormsModule} from "@angular/forms";
   ]
 })
 export class LoginPage {
-  // Estos datos vendrían vinculados con [(ngModel)] en el HTML
   email: string = '';
   pass: string = '';
 
   constructor(private router: Router, private toast: ToastController) {}
 
   async irAInicio() {
-    // Esta "fórmula" comprueba que sea un correo real
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!emailPattern.test(this.email)) {

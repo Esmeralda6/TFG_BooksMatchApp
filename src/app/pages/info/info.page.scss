@@ -4,7 +4,6 @@ $secondary: #495e8a;
 $tertiary: #735c00;
 $bg-color: #fdf8fd;
 
-// 2. Estilo de fondo y textura
 .paper-texture {
   --background: #{$bg-color};
   background-image: radial-gradient(#d6c2c6 0.5px, transparent 0.5px);
@@ -18,10 +17,9 @@ $bg-color: #fdf8fd;
   pointer-events: none;
 }
 
-// 3. Contenedores principales
 .main-container {
   padding: 20px;
-  max-width: 600px; // Un poco más estrecho para que la columna se vea mejor
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -48,7 +46,6 @@ $bg-color: #fdf8fd;
   }
 }
 
-// 4. Hero Section
 .hero-section {
   text-align: center;
   margin: 50px 0;
@@ -58,7 +55,7 @@ $bg-color: #fdf8fd;
     color: $primary;
     line-height: 1.1;
     margin-bottom: 20px;
-    text-transform: uppercase; // Para coincidir con tu HTML de "YOUR LITERARY SOULMATE"
+    text-transform: uppercase;
     letter-spacing: -1px;
   }
 
@@ -71,7 +68,6 @@ $bg-color: #fdf8fd;
   }
 }
 
-// 5. AJUSTE: Tarjetas en Vertical
 .features-column {
   display: flex;
   flex-direction: column;
@@ -116,7 +112,6 @@ $bg-color: #fdf8fd;
   }
 }
 
-// 6. AJUSTE: Pilares en Vertical
 .pillars-section {
   margin-bottom: 80px;
 
@@ -143,19 +138,14 @@ $bg-color: #fdf8fd;
     margin-top: 30px;
 
     .pillar-item {
-      // Aumentamos el tamaño base para que quepan textos largos
       width: 150px;
       height: 150px;
       background: #ebe7ec;
       border-radius: 50%;
-
-      // Contenedor Flex para centrar todo
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      // Importante: Padding para que el texto no toque los bordes del círculo
       padding: 15px;
       text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -167,11 +157,10 @@ $bg-color: #fdf8fd;
       }
 
       span {
-        // Reducimos un pelín la fuente y ajustamos el interlineado
         font-size: 0.95rem;
         line-height: 1.1;
         color: #1c1b1f;
-        max-width: 100%; // Asegura que no se estire fuera del padding
+        max-width: 100%;
         display: block;
       }
 
@@ -181,7 +170,6 @@ $bg-color: #fdf8fd;
         background: $tertiary;
         margin-top: 8px;
         border-radius: 10px;
-        // Evita que el acento se mueva si el texto crece
         flex-shrink: 0;
       }
     }

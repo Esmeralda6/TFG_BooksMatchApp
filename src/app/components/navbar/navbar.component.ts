@@ -13,7 +13,6 @@ import {RouterLink} from "@angular/router";
     IonToolbar,
     IonMenuButton,
     IonTitle,
-    IonAvatar,
     RouterLink
   ]
 })

@@ -48,7 +48,7 @@ $navy: #314671;
 }
 
 .custom-input {
-  --background: #fdf8fd; // Rosa casi blanco
+  --background: #fdf8fd;
   --border-radius: 12px;
   margin-top: 6px;
   font-family: 'Manrope', sans-serif;
@@ -75,7 +75,7 @@ $navy: #314671;
 
 .social-buttons {
   display: flex;
-  gap: 15px; // Espacio entre los dos botones
+  gap: 15px;
   width: 100%;
   margin-top: 20px;
 
@@ -87,19 +87,16 @@ $navy: #314671;
     height: 50px;
     font-size: 0.9rem;
     font-weight: 600;
-
-    // Centrar el contenido dentro del botón
     display: flex;
     align-items: center;
   }
 }
 
-// ESTO ES LO IMPORTANTE
 .social-icon {
-  width: 20px;          // Tamaño pequeño y fijo
-  height: 20px;         // Tamaño pequeño y fijo
-  margin-right: 10px;   // Separación con el texto
-  object-fit: contain;  // Para que no se deforme
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
 }
 
 .footer-text {

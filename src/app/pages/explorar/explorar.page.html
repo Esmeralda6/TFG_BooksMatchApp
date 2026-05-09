@@ -38,11 +38,11 @@
                   <span class="match-badge">Match</span>
                 }
               </div>
-              <p class="text-gray-500 font-sans text-sm mt-1">{{ libro.autor }}</p>
+              <p class="author-text font-sans">{{ libro.autor }}</p>
 
               <div class="flex items-center mt-2 text-yellow-500 text-xs">
                 <ion-icon name="star"></ion-icon>
-                <span class="ml-1 text-gray-700 font-bold">{{ libro.valoracion.rating }}</span>
+                <span class="ml-1 text-gray-700 font-bold font-sans">{{ libro.valoracion.rating }}</span>
                 <span class="ml-auto text-gray-400 text-[10px]">
               {{ libro.expandido ? 'Ver menos' : 'Ver más...' }}
             </span>
@@ -59,14 +59,20 @@
 
               <div class="flex justify-between items-end mb-4">
                 <div class="price-section">
-                  <p class="text-[10px] uppercase text-gray-400 tracking-widest">{{ libro.genero }}</p>
+                  <p class="text-[10px] uppercase text-gray-400 tracking-widest"><strong>{{ libro.genero }}</strong></p>
                   <div class="flex items-baseline gap-2">
                     <p class="text-2xl font-bold text-[#894b61]">{{ libro.precio.fisico }}€</p>
                     <p class="text-xs text-gray-400">eBook: {{ libro.precio.eBook }}€</p>
                   </div>
                 </div>
-                <ion-button fill="clear" color="dark" size="small">
-                  Comprar <ion-icon name="chevron-forward" slot="end"></ion-icon>
+                <ion-button class="btn-comprar"
+                  fill="clear"
+                            color="dark"
+                            size="small"
+                            (click)="irALaCasaDelLibro(libro); $event.stopPropagation()">
+                  Comprar
+                  <ion-icon name="open-outline" slot="end"></ion-icon>
+
                 </ion-button>
               </div>
 

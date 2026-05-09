@@ -22,7 +22,6 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
     NavbarComponent,
     IonIcon
   ],
-  // No olvides importar los módulos de Ionic necesarios
 })
 export class CategoriasPage implements OnInit {
 

@@ -22,11 +22,11 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonLabel, IonIcon, IonTabButton, IonFooter, IonTabBar, IonButton, IonButtons, IonMenuButton, IonAvatar, NavbarComponent]
+  imports: [IonContent, CommonModule, FormsModule, IonIcon, IonButton, NavbarComponent]
 })
 export class InicioPage implements OnInit {
 
-  constructor(private router: Router) {} // Inyectamos el router en el constructor
+  constructor(private router: Router) {}
 
   // Función para navegar
   goToCategories() {

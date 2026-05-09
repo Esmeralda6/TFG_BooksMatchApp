@@ -40,7 +40,6 @@ export class PerfilPage implements OnInit {
   books = [
     { title: 'El Gran Gatsby', author: 'F. Scott Fitzgerald', img: 'assets/books/gatsby.jpg' },
     { title: 'Sapiens', author: 'Yuval Noah Harari', img: 'assets/books/sapiens.jpg' },
-    // Añade más libros aquí para probar el scroll del modal
   ];
 
   @ViewChild(IonModal) modal!: IonModal;

@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { DataService } from '../../service/data-service';
-import {NavbarComponent} from "../../components/navbar/navbar.component"; // Asegúrate de que la ruta sea correcta
-
+import {NavbarComponent} from "../../components/navbar/navbar.component";
 @Component({
   selector: 'app-explorar',
   templateUrl: './explorar.page.html',
@@ -14,16 +13,14 @@ import {NavbarComponent} from "../../components/navbar/navbar.component"; // Ase
   imports: [IonicModule, CommonModule, FormsModule, NavbarComponent]
 })
 export class ExplorarPage implements OnInit {
-  // 1. Inyección de dependencias (Forma moderna)
   private route = inject(ActivatedRoute);
   private readonly dataService= inject(DataService);
 
-  // 2. Variables de estado
   categoriaSeleccionada: string | null = null;
   busquedaUsuario: string = '';
 
-  librosBase: any[] = [];      // Aquí guardamos la copia intacta de la API
-  librosMostrados: any[] = [];  // Lo que se ve en el HTML
+  librosBase: any[] = [];
+  librosMostrados: any[] = [];
 
   misIntereses = ['rock', 'acuarela', 'guitarra', 'biografias', 'ajedrez'];
 
@@ -46,9 +43,8 @@ export class ExplorarPage implements OnInit {
 
         const librosConMatch = this.aplicarMatchScore(filtrados, this.misIntereses);
 
-        // --- EL CAMBIO ESTÁ AQUÍ ---
-        this.librosBase = librosConMatch; // Guardamos los datos en la "mochila"
-        this.librosMostrados = [];        // Pero dejamos la "pantalla" vacía (array vacío)
+        this.librosBase = librosConMatch; // Guardamos los datos
+        this.librosMostrados = [];        // Pero dejamos la "pantalla" vacía
       },
       error: (err) => console.error('Error:', err)
     });
@@ -63,7 +59,6 @@ export class ExplorarPage implements OnInit {
       return;
     }
 
-    // Buscamos dentro de nuestra "mochila" (librosBase)
     this.librosMostrados = this.librosBase.filter(libro =>
       libro.tags.some((tag: string) =>
         tag.toLowerCase().includes(termino)
@@ -82,9 +77,18 @@ export class ExplorarPage implements OnInit {
     }).sort((a, b) => (b.matchScore || 0) - (a.matchScore || 0));
   }
 
-  // Añade esta función dentro de tu clase ExplorarPage
   toggleLibro(libro: any) {
     // Si estaba abierto se cierra, si estaba cerrado se abre
     libro.expandido = !libro.expandido;
+  }
+
+  irALaCasaDelLibro(libro: any) {
+    if (libro.urlCompra) {
+      window.open(libro.urlCompra, '_blank');
+    } else {
+      // Plan B: Si por algún motivo no hay link, que use el buscador automático
+      const query = encodeURIComponent(`${libro.titulo} ${libro.autor}`);
+      window.open(`https://www.casadellibro.com/busqueda/generica?busqueda=${query}`, '_blank');
+    }
   }
 }

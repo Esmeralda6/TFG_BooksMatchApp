@@ -27,7 +27,6 @@ ion-toolbar {
   border: 2px solid $accent;
 }
 
-// Hero Novedades
 .hero-header {
   padding: 30px 24px 10px;
   .tag {
@@ -43,7 +42,6 @@ ion-toolbar {
   }
 }
 
-// Carrusel de Libros
 .novedades-slide {
   .horizontal-scroll {
     display: flex;
@@ -81,7 +79,6 @@ ion-toolbar {
   font-weight: 800;
 }
 
-// Sección de Cine (Cambio de diseño)
 .cinema-section {
   padding: 50px 24px;
   background: $bg-cinema;

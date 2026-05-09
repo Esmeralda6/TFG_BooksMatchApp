@@ -58,11 +58,7 @@ export class RegisterPage implements OnInit {
       return;
     }
 
-    // --- EL CAMBIO ESTÁ AQUÍ ---
-    // Guardamos 'this.name', que es el valor de la variable vinculada al input
     this.userService.setUserName(this.name);
-
-    // Una sola redirección (elige a dónde quieres que vaya el usuario al registrarse)
     this.router.navigate(['/inicio']);
   }
 

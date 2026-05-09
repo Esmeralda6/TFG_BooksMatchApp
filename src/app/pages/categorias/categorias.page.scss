@@ -79,17 +79,14 @@ button {
     text-align: left;
 
     ion-icon {
-      font-size: 48px; // Aumenta aquí el tamaño a tu gusto (48px, 64px, etc.)
-      color: #ffffff !important; // Fuerza el color blanco
-      margin-bottom: 15px; // Separa un poco el icono del texto si están muy pegados
-
-      // Opcional: Un toque de sombra suave para que resalte más sobre colores claros
+      font-size: 48px;
+      color: #ffffff !important;
+      margin-bottom: 15px;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
   }
 }
 
-// 5. ELEMENTOS INTERNOS (Iconos y Textos)
 .icon-box {
   width: 48px;
   height: 48px;
@@ -120,7 +117,6 @@ button {
   margin-bottom: 4px;
 }
 
-// 6. COLORES PERSONALIZADOS PARA CADA CARD
 .card-hobbies {
   background-color: #d81b60; // Fucsia
   ion-icon, .title, .label { color: #ffffff; }
@@ -141,7 +137,6 @@ button {
   ion-icon, .title { color: #4a148c; }
 }
 
-// 7. IMAGEN DE FONDO (Opcional para Hobbies)
 .card-bg-img {
   position: absolute;
   inset: 0;

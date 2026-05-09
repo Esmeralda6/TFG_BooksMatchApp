@@ -283,16 +283,14 @@ export class SostenibilidadPage implements OnInit {
         price: this.nuevoLibro.price + '€'
       };
 
-      // OPCIÓN A: Esta es la forma que obliga a Angular a refrescar la pantalla
       this.books = [libroNuevo, ...this.books];
 
-      // IMPORTANTE: Limpia los filtros para que el libro no quede oculto
+      //  Limpia los filtros para que el libro no quede oculto
       this.searchTerm = '';
       this.categoryActive = 'Todos';
 
       this.cerrarModal();
 
-      // Limpiar el objeto para el siguiente
       this.nuevoLibro = { title: '', author: '', price: '', category: '', location: '', img: '' };
     }
   }

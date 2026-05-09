@@ -21,7 +21,6 @@ $tertiary: #eac34a;
   }
 }
 
-// Búsqueda personalizada
 .custom-search {
   --background: #f1ecf2;
   --border-radius: 50px;
@@ -59,7 +58,6 @@ $tertiary: #eac34a;
   }
 }
 
-// Grid de tarjetas
 .books-marketplace-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -131,7 +129,6 @@ $tertiary: #eac34a;
   }
 }
 
-// Botón de Vender (FAB)
 .fab-sell {
   margin-bottom: 20px;
   .btn-sell {
@@ -152,19 +149,17 @@ $tertiary: #eac34a;
   }
 }
 .fab-circular {
-  // Colores según tu paleta
   --background: #894b61;
   --background-activated: #6d344a;
 
-  // Sombra suave para que resalte sobre el fondo
+
 
   ion-icon {
-    font-size: 28px; // Tamaño del icono dentro del círculo
+    font-size: 28px;
   }
 }
 
 .btn-post {
-  // Forzamos el color rosa de tu marca
   --background: #894b61;
   --background-activated: #6d344a;
   --background-focused: #6d344a;
@@ -176,13 +171,11 @@ $tertiary: #eac34a;
   text-transform: uppercase;
   letter-spacing: 1px;
 
-  // Si quieres el degradado que usaste en el FAB:
-  // --background: linear-gradient(to right, #894b61, #ffb1ca);
+
 }
 
-// Ajuste para el placeholder de la imagen
 .image-upload-placeholder {
-  border: 2px dashed #894b61; // Borde rosa
+  border: 2px dashed #894b61;
   color: #894b61;
   background: #fdf8fd;
 

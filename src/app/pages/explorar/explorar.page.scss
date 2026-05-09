@@ -13,7 +13,7 @@
 
     &:active {
       transform: scale(0.95);
-      background-color: #894b61; // Cambia a tu color primario al pulsar
+      background-color: #894b61;
     }
   }
 }
@@ -72,4 +72,119 @@
   display: flex;
   align-items: center;
   font-weight: 500;
+}
+
+/* Estilos del Buscador */
+.btn-aceptar {
+  background: #894b61;
+  color: white;
+  padding: 0 20px;
+  height: 40px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(137, 75, 97, 0.2);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #703d4f;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Badge de Match en Rosa */
+.match-badge {
+  background: #fdf2f8;
+  color: #894b61;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid #fbcfe8;
+}
+
+/* Botón Comprar */
+.btn-comprar {
+  background: transparent;
+  color: #894b61;
+  border: 1px solid #fbcfe8;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #fdf2f8;
+  }
+}
+
+/* Tarjeta mejorada con bordes suaves */
+.book-card {
+  background: white;
+  padding: 20px;
+  border-radius: 28px;
+  border: 1px solid #fdf2f8;
+  box-shadow: 0 8px 24px rgba(137, 75, 97, 0.05);
+  transition: all 0.3s ease;
+
+  &.is-expanded {
+    border-color: #fbcfe8;
+    box-shadow: 0 12px 30px rgba(137, 75, 97, 0.1);
+  }
+}
+
+.book-cover-wrapper {
+  width: 90px;
+  height: 130px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  .book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* En variables.scss o al principio de tu explorar.page.scss */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;700&display=swap');
+
+.serif-title, .font-serif {
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: -0.5px;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* El título del libro: Más elegante */
+.book-card h3 {
+  color: #2d1b22; /* Un marrón casi negro muy elegante */
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+/* El Autor: Estilo editorial */
+.author-text {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a38d95; /* Rosa ceniza */
+}
+
+/* Match Badge: En negrita */
+.match-badge {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
