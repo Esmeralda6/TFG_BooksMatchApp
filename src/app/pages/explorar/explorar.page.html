@@ -1,7 +1,15 @@
 <app-navbar title="Booksmatch"></app-navbar>
 
 <ion-content class="ion-padding">
+
   <div class="container-wrapper">
+
+    <div class="back-nav">
+      <ion-button fill="clear" color="dark" (click)="volver()" class="btn-back">
+        <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+        Categorías
+      </ion-button>
+    </div>
 
     <header class="header-section">
       <h2 class="serif-title">Explorar {{ categoriaSeleccionada }}</h2>

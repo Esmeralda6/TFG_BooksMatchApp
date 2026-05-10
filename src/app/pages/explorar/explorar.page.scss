@@ -207,3 +207,21 @@
   text-justify: inter-word;
   hyphens: auto;
 }
+
+.back-nav {
+  margin-bottom: 10px; // Espacio con el título
+  margin-left: -8px;   // Para alinear la flecha con el texto de abajo
+
+  .btn-back {
+    --color: #894b61; // Tu color de marca
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: none; // Para que no salga todo en mayúsculas
+    letter-spacing: 0;
+  }
+}
+
+.header-section {
+  margin-top: 5px; // Ajusta para que se vea equilibrado
+  // ... resto de tu css
+}

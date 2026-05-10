@@ -99,36 +99,71 @@ ion-toolbar {
 }
 
 .cinema-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-
-  .movie-card {
-    position: relative;
-    height: 250px;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-    .movie-bg { width: 100%; height: 100%; object-fit: cover; }
-
-    .movie-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 20%, transparent);
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      color: white;
-
-      .platform-tag { font-size: 0.7rem; color: $accent; font-weight: 700; }
-      h4 { font-size: 1.8rem; margin: 5px 0; }
-      .btn-more { --color: white; font-weight: 600; margin: 0; padding: 0; }
-    }
-  }
+  display: grid;
+  grid-template-columns: 1fr; // Una película por fila
+  gap: 25px; // Espacio generoso entre carteles
+  padding: 15px;
 }
 
+.movie-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* RELACIÓN VERTICAL:
+     3/4 es un estándar vertical muy elegante.
+     Si lo quieres aún más largo, usa 2/3. */
+  aspect-ratio: 3 / 4;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  .movie-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // La imagen se adaptará al rectángulo vertical
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .movie-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    /* Degradado más alto para que el texto luzca sobre el formato vertical */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h4 {
+      color: white;
+      margin: 10px 0 0;
+      font-size: 1.6rem; // Título grande y legible
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .platform-tag {
+      background: #894b61;
+      color: white;
+      font-size: 0.85rem;
+      padding: 5px 14px;
+      border-radius: 8px;
+      align-self: flex-start;
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  }
+
+  // Animación al pulsar
+  &:active .movie-bg {
+    transform: scale(1.04);
+  }
+}
 // BOTÓN FLOTANTE
 .match-fab-container {
   position: fixed;

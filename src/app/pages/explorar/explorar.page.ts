@@ -2,9 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import {IonicModule, NavController} from '@ionic/angular';
 import { DataService } from '../../service/data-service';
 import {NavbarComponent} from "../../components/navbar/navbar.component";
+import {addIcons} from "ionicons";
+import {arrowBackOutline} from "ionicons/icons";
 @Component({
   selector: 'app-explorar',
   templateUrl: './explorar.page.html',
@@ -24,9 +26,16 @@ export class ExplorarPage implements OnInit {
 
   misIntereses = ['rock', 'acuarela', 'guitarra', 'biografias', 'ajedrez'];
 
+  constructor(private navCtrl: NavController) {
+    addIcons({ arrowBackOutline }); // Registra el icono
+  }
+
   ngOnInit() {
     this.categoriaSeleccionada = this.route.snapshot.paramMap.get('categoria');
     this.cargarDatos();
+  }
+  volver() {
+    this.navCtrl.back(); // Función que hace la magia de retroceder
   }
 
   cargarDatos() {
