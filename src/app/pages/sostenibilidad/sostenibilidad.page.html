@@ -29,7 +29,7 @@
 
     <div class="books-marketplace-grid">
       @for (book of (books | filtoPipe: searchTerm : categoryActive); track book.title) {
-        <div class="book-card">
+        <div class="book-card" (click)="abrirDetalle(book)">
           <div class="cover-wrapper">
             <img [src]="book.img" [alt]="book.title">
             <button class="fav-btn">
@@ -46,11 +46,11 @@
 
               <span class="location">{{ book.location }}</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <!--<div style="display: flex; justify-content: space-between; align-items: flex-start;">
               <ion-button fill="clear" color="danger" (click)="borrarLibro(book.title)" size="small">
                 <ion-icon name="trash-outline"></ion-icon>
               </ion-button>
-            </div>
+            </div>-->
           </div>
         </div>
       } @empty {
@@ -128,6 +128,121 @@
           <ion-button expand="block" mode="ios" class="btn-post" (click)="publicarLibro()">
             Publicar Anuncio
           </ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+  <ion-modal #modalDetalle [initialBreakpoint]="0.75" [breakpoints]="[0, 0.5, 0.75, 1]">
+    <ng-template>
+      <ion-header class="ion-no-border">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="modalDetalle.dismiss()">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title class="serif-text">Detalle del libro</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding" *ngIf="libroSeleccionado">
+        <div class="product-detail">
+          <img [src]="libroSeleccionado.img" class="detail-img">
+
+          <div class="info-row">
+            <h2 class="serif-text">{{ libroSeleccionado.title }}</h2>
+            <span class="price-big">{{ libroSeleccionado.price }}</span>
+          </div>
+
+          <p class="author-detail">de {{ libroSeleccionado.author }}</p>
+
+          <div class="vinted-stats">
+            <div class="stat-item">
+              <ion-icon name="location-outline"></ion-icon>
+              <span>{{ libroSeleccionado.location }}</span>
+            </div>
+            <div class="stat-item">
+              <ion-icon name="person-circle-outline"></ion-icon>
+              <span>Vendedor: {{ libroSeleccionado.seller }}</span>
+            </div>
+          </div>
+
+          <div class="payment-box">
+            <p class="protection-text">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              Protección al comprador Booksmatch aplicada.
+            </p>
+            <ion-button expand="block" class="btn-stripe" (click)="pagarConStripe()">
+              <ion-icon name="card-outline" slot="start"></ion-icon>
+              Comprar ahora
+            </ion-button>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #modalProcesando [initialBreakpoint]="0.4" [breakpoints]="[0, 0.4]" handleBehavior="cycle">
+    <ng-template>
+      <ion-content class="ion-padding ion-text-center">
+        <div style="margin-top: 40px;">
+          <h2 class="serif-text" style="color: #894b61;">Conectando con tu banco</h2>
+          <p>Estamos validando la transacción de {{ libroSeleccionado?.price }}</p>
+
+          <div style="margin: 30px 0;">
+            <ion-spinner name="crescent" style="transform: scale(1.5); color: #894b61;"></ion-spinner>
+          </div>
+
+          <p style="font-size: 0.8rem; color: #888;">Pasarela segura Booksmatch 2.0</p>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-modal #modalPasarela [initialBreakpoint]="0.70" [breakpoints]="[0, 0.70]">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <div class="pasarela-container">
+          <h2 class="serif-text ion-text-center">Pago Seguro</h2>
+
+          @if (libroSeleccionado) {
+            <div class="resumen-pago" class="ion-margin-bottom">
+              <p>Vas a comprar: <strong>{{ libroSeleccionado.title }}</strong></p>
+              <div class="precio-final">{{ libroSeleccionado.price }}</div>
+            </div>
+          }
+
+          <div class="form-tarjeta">
+            <ion-item lines="none" class="input-pago">
+              <ion-label position="stacked">Número de Tarjeta</ion-label>
+              <ion-input placeholder="4500 0000 0000 0000" maxlength="19"></ion-input>
+            </ion-item>
+
+            <div style="display: flex; gap: 10px;">
+              <ion-item lines="none" class="input-pago" style="flex: 1;">
+                <ion-label position="stacked">Expira (MM/AA)</ion-label>
+                <ion-input placeholder="12/26"></ion-input>
+              </ion-item>
+              <ion-item lines="none" class="input-pago" style="flex: 1;">
+                <ion-label position="stacked">CVV</ion-label>
+                <ion-input type="password" placeholder="***" maxlength="3"></ion-input>
+              </ion-item>
+            </div>
+          </div>
+
+          <ion-button expand="block" class="btn-pagar-ahora" (click)="procesarTransaccion()">
+            @if (!cargando) {
+              Pagar Ahora
+            } @else {
+              <ion-spinner name="crescent"></ion-spinner>
+            }
+          </ion-button>
+
+          <p class="nota-seguridad">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            Pago encriptado de extremo a extremo
+          </p>
         </div>
       </ion-content>
     </ng-template>

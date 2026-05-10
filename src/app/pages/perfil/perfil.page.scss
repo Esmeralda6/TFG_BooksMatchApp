@@ -276,3 +276,20 @@ $gold-bg: #ffe088;
   opacity: 0.9;
   transform: scale(0.98);
 }
+
+.pedido-item {
+  --background: #f9f9f9;
+  --border-radius: 12px;
+  margin-bottom: 10px;
+
+  ion-thumbnail {
+    --border-radius: 8px;
+    width: 60px;
+    height: 80px;
+  }
+
+  h2 {
+    font-weight: bold;
+    color: #894b61;
+  }
+}

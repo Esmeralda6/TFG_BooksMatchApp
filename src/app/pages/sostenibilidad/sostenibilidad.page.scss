@@ -183,3 +183,103 @@ $tertiary: #eac34a;
     color: #894b61;
   }
 }
+
+.product-detail {
+  .detail-img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    background: #f8f8f8;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 { font-size: 1.8rem; margin: 0; color: $primary; }
+    .price-big { font-size: 1.5rem; font-weight: 800; color: #1c1b1f; }
+  }
+
+  .author-detail { font-size: 1.1rem; color: #666; margin: 5px 0 20px 0; }
+
+  .vinted-stats {
+    background: #fdf8fd;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #514347;
+      ion-icon { color: $primary; }
+    }
+  }
+}
+
+.payment-box {
+  .protection-text {
+    font-size: 0.8rem;
+    color: #4CAF50;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.btn-stripe {
+  --background: #894b61; /* Usamos tu rosa en vez del azul de stripe */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(137, 75, 97, 0.2);
+  margin-top: 15px;
+  height: 50px;
+  font-weight: 700;
+}
+
+.protection-text {
+  color: #2dd36f; /* Un verde suave para la protección al comprador */
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.checkout-form {
+  padding: 10px;
+  .card-inputs {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+  }
+  .secure-label {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+.resumen-pago {
+  text-align: center;
+  background: #fdf8fd;
+  padding: 15px;
+  border-radius: 15px;
+
+  margin-bottom: 30px;
+
+  .precio-final {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #894b61;
+  }
+}

@@ -7,7 +7,7 @@ import {
   IonFabButton,
   IonHeader,
   IonIcon, IonInput, IonItem, IonLabel, IonModal,
-  IonSearchbar, IonSelect, IonSelectOption,
+  IonSearchbar, IonSelect, IonSelectOption, IonSpinner,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -16,25 +16,27 @@ import {
   add,
   addCircle,
   addCircleOutline,
-  cameraOutline,
-  menuOutline,
+  cameraOutline, cardOutline, closeOutline, locationOutline, lockClosedOutline,
+  menuOutline, personCircleOutline,
   personOutline,
-  searchOutline, trashOutline
+  searchOutline, shieldCheckmarkOutline, trashOutline
 } from "ionicons/icons";
 import {addIcons} from "ionicons";
 import {FiltoPipePipe} from "../../pipes/filto-pipe-pipe";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
+import {ToastService} from "../../service/toast-service";
 
 @Component({
   selector: 'app-sostenibilidad',
   templateUrl: './sostenibilidad.page.html',
   styleUrls: ['./sostenibilidad.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, NavbarComponent, IonSearchbar, IonIcon, IonFabButton, IonFab, FiltoPipePipe, IonLabel, IonButton, IonInput, IonItem, IonSelect, IonSelectOption, IonModal, IonHeader, IonToolbar, IonTitle, IonButtons]
+  imports: [IonContent, CommonModule, FormsModule, NavbarComponent, IonSearchbar, IonIcon, IonFabButton, IonFab, FiltoPipePipe, IonLabel, IonButton, IonInput, IonItem, IonSelect, IonSelectOption, IonModal, IonHeader, IonToolbar, IonTitle, IonButtons, IonSpinner]
 })
 export class SostenibilidadPage implements OnInit {
 
-  constructor() { addIcons({menuOutline,trashOutline, searchOutline, addCircle, personOutline, add, cameraOutline
+  constructor(private toastService: ToastService) { addIcons({menuOutline,trashOutline, searchOutline, addCircle, personOutline, add, cameraOutline,
+    closeOutline, locationOutline, shieldCheckmarkOutline, cardOutline, personCircleOutline, lockClosedOutline
   })}
 
   searchTerm: string = '';
@@ -296,5 +298,82 @@ export class SostenibilidadPage implements OnInit {
   }
   borrarLibro(titulo: string) {
     this.books = this.books.filter(b => b.title !== titulo);
+  }
+
+  @ViewChild('modalDetalle') modalDetalle!: IonModal;
+
+  libroSeleccionado: any = null;
+
+
+
+  abrirDetalle(book: any) {
+    this.libroSeleccionado = book;
+    this.modalDetalle.present();
+  }
+
+  @ViewChild('modalProcesando') modalProcesando!: IonModal; // <--- Añade esto
+
+  @ViewChild('modalPasarela') modalPasarela!: IonModal;
+  cargando: boolean = false;
+
+// 1. Este es el botón de "Comprar ahora" del primer modal
+  /*async pagarConStripe() {
+    this.modalDetalle.dismiss(); // Cierra el detalle
+    setTimeout(() => {
+      this.modalPasarela.present(); // Abre la tarjeta
+    }, 300);
+  }*/
+
+// 2. Este es el botón de "Pagar ahora" de la tarjeta
+  // 1. Al pulsar "Comprar ahora" en el detalle, abrimos la TARJETA
+  async pagarConStripe() {
+    await this.modalDetalle.dismiss();
+    setTimeout(() => {
+      this.modalPasarela.present();
+    }, 300);
+  }
+
+// 2. Al pulsar "Pagar ahora" en la tarjeta, abrimos el PROCESANDO (el banco)
+  async procesarTransaccion() {
+    // 1. Cerramos la pasarela de tarjeta
+    await this.modalPasarela.dismiss();
+
+    // 2. Abrimos el modal de "Conectando con el banco"
+    setTimeout(() => {
+      this.modalProcesando.present();
+    }, 300);
+
+    // 3. Simulación del proceso bancario y guardado de datos
+    setTimeout(async () => {
+      // --- LÓGICA DE GUARDADO EN PERFIL ---
+      if (this.libroSeleccionado) {
+        // Obtenemos pedidos anteriores o creamos array vacío
+        const pedidosActuales = JSON.parse(localStorage.getItem('mis_pedidos') || '[]');
+
+        // Creamos el objeto del nuevo pedido
+        const nuevoPedido = {
+          titulo: this.libroSeleccionado.title,
+          precio: this.libroSeleccionado.price,
+          img: this.libroSeleccionado.img,
+          fecha: new Date().toLocaleDateString(),
+          estado: 'Pendiente de envío'
+        };
+
+        // Guardamos en el almacenamiento local
+        pedidosActuales.push(nuevoPedido);
+        localStorage.setItem('mis_pedidos', JSON.stringify(pedidosActuales));
+
+        // Borramos el libro de la tienda para que no se pueda comprar dos veces
+        this.borrarLibro(this.libroSeleccionado.title);
+      }
+      // ------------------------------------
+
+      // 4. Cerramos el modal de carga y avisamos al usuario
+      await this.modalProcesando.dismiss();
+      this.toastService.showSuccess('¡Pago verificado! El libro se ha añadido a tu perfil.');
+
+      // Limpiamos la selección
+      this.libroSeleccionado = null;
+    }, 2500);
   }
 }

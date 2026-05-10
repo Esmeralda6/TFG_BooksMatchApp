@@ -7,7 +7,7 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonIcon, IonInput, IonItem, IonModal, IonSelect, IonSelectOption,
+  IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonSelect, IonSelectOption, IonThumbnail,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -21,12 +21,15 @@ import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonButton, IonButtons, IonBackButton, IonModal, IonSelect, IonSelectOption, IonItem, IonInput]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonButton, IonButtons, IonBackButton, IonModal, IonSelect, IonSelectOption, IonItem, IonInput, IonLabel, IonThumbnail, IonList]
 })
 export class PerfilPage implements OnInit {
 
   //Declaramos la variable
   nombreUsuario: string = '';
+
+  editando = false;
+  usuario:any;
 
   constructor(private userService: UserService) {
     addIcons({ menuOutline, libraryOutline, compassOutline, sparklesOutline, person, camera });
@@ -34,7 +37,8 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() {
     // 2. Asignamos el valor dentro de ngOnInit para que se ejecute al cargar
-    this.nombreUsuario = this.userService.getUserName();
+    this.usuario = {...this.userService.usuario};
+    this.cargarPedidos();
   }
 
   books = [
@@ -52,26 +56,30 @@ export class PerfilPage implements OnInit {
 
   @ViewChild(IonModal) modal!: IonModal;
 
-  editando: boolean = false;
 
   // Datos del usuario (esto vendría de tu API)
-  usuario = {
-    nombre: 'El Curator',
+  /*usuario = {
+    nombre: 'Usuario',
     tagline: 'En busca de la página perfecta.',
     rango: 'Lector Premium - Oro',
-    foto: 'assets/images/user.jpeg'
-  };
+    foto: 'assets/images/avatarbm.png'
+  };*/
 
   // Opciones de rango para el selector
   rangos = ['Lector Novato', 'Lector Voraz', 'Lector Premium - Oro', 'Maestro de lo Clásico'];
 
   toggleEdicion() {
     this.editando = !this.editando;
+    if (!this.editando) {
+      // Si cancelamos, volvemos a cargar los datos originales del servicio
+      this.usuario = { ...this.userService.usuario };
+    }
   }
 
   guardarCambios() {
     this.editando = false;
     // Aquí harías el PATCH a tu API de NestJS
+    this.userService.actualizarPerfil(this.usuario)
     console.log('Guardando...', this.usuario);
   }
 
@@ -93,4 +101,18 @@ export class PerfilPage implements OnInit {
   }
 
 
+  misPedidos: any[] = [];
+
+
+  // Cada vez que el usuario entre a la pestaña de perfil, refrescamos la lista
+  ionViewWillEnter() {
+    this.cargarPedidos();
+  }
+
+  cargarPedidos() {
+    const datos = localStorage.getItem('mis_pedidos');
+    if (datos) {
+      this.misPedidos = JSON.parse(datos);
+    }
+  }
 }
