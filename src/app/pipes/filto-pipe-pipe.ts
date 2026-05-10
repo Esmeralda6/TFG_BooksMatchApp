@@ -9,11 +9,9 @@ export class FiltoPipePipe implements PipeTransform {
     if (!books) return [];
 
     return books.filter(book => {
-      // 1. Filtro de Categoría:
       // Si la categoría es 'Todos', pasa el filtro. Si no, debe coincidir exactamente.
       const matchesCategory = selectedCategory === 'Todos' || book.category === selectedCategory;
 
-      // 2. Filtro de Texto:
       // Si no hay texto, pasa el filtro. Si hay, busca en título o autor.
       const search = searchTerm.toLowerCase().trim();
       const matchesSearch = search === '' ||

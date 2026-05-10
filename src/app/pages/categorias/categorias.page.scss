@@ -5,9 +5,9 @@
   --ion-color-primary: #894b61;
 }
 
-// 2. CONTENEDOR PRINCIPAL (Márgenes y Padding de la pantalla)
+//  CONTENEDOR PRINCIPAL
 .container-wrapper {
-  padding: 32px 24px; // Separa el contenido de los bordes del móvil
+  padding: 32px 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -32,18 +32,17 @@
   }
 }
 
-// 3. CONFIGURACIÓN DEL GRID (Espacio ENTRE tarjetas)
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 20px; // Espacio real entre las cards
+  gap: 20px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(12, 1fr);
   }
 }
 
-// 4. ESTILO BASE DE LAS CARDS
+//ESTILO BASE DE LAS CARDS
 button {
   border: none;
   outline: none;

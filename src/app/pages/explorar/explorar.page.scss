@@ -209,19 +209,18 @@
 }
 
 .back-nav {
-  margin-bottom: 10px; // Espacio con el título
-  margin-left: -8px;   // Para alinear la flecha con el texto de abajo
+  margin-bottom: 10px;
+  margin-left: -8px;
 
   .btn-back {
-    --color: #894b61; // Tu color de marca
+    --color: #894b61;
     font-size: 0.9rem;
     font-weight: 600;
-    text-transform: none; // Para que no salga todo en mayúsculas
+    text-transform: none;
     letter-spacing: 0;
   }
 }
 
 .header-section {
-  margin-top: 5px; // Ajusta para que se vea equilibrado
-  // ... resto de tu css
+  margin-top: 5px;
 }

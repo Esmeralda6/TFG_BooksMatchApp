@@ -27,7 +27,7 @@ export class ExplorarPage implements OnInit {
   misIntereses = ['rock', 'acuarela', 'guitarra', 'biografias', 'ajedrez'];
 
   constructor(private navCtrl: NavController) {
-    addIcons({ arrowBackOutline }); // Registra el icono
+    addIcons({ arrowBackOutline });
   }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class ExplorarPage implements OnInit {
     this.cargarDatos();
   }
   volver() {
-    this.navCtrl.back(); // Función que hace la magia de retroceder
+    this.navCtrl.back();
   }
 
   cargarDatos() {
@@ -53,7 +53,7 @@ export class ExplorarPage implements OnInit {
         const librosConMatch = this.aplicarMatchScore(filtrados, this.misIntereses);
 
         this.librosBase = librosConMatch; // Guardamos los datos
-        this.librosMostrados = [];        // Pero dejamos la "pantalla" vacía
+        this.librosMostrados = [];
       },
       error: (err) => console.error('Error:', err)
     });
@@ -62,7 +62,6 @@ export class ExplorarPage implements OnInit {
   ejecutarBusqueda() {
     const termino = this.busquedaUsuario.toLowerCase().trim();
 
-    // Si el usuario borra lo que escribió, vaciamos la pantalla otra vez
     if (!termino) {
       this.librosMostrados = [];
       return;
