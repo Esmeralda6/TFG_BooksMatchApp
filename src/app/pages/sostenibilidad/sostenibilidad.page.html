@@ -54,7 +54,10 @@
           </div>
         </div>
       } @empty {
-        <p class="ion-text-center">No hay libros en {{ categoryActive }} con ese nombre.</p>
+        <div class="empty-state">
+          <ion-icon name="search-circle"></ion-icon>
+          <p>No hay libros actualmente con ese nombre.</p>
+        </div>
       }
 
     </div>

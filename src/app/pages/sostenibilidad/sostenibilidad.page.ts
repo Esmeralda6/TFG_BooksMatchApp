@@ -19,7 +19,7 @@ import {
   cameraOutline, cardOutline, closeOutline, locationOutline, lockClosedOutline,
   menuOutline, personCircleOutline,
   personOutline,
-  searchOutline, shieldCheckmarkOutline, trashOutline
+  searchOutline, shieldCheckmarkOutline, trashOutline, searchCircle,
 } from "ionicons/icons";
 import {addIcons} from "ionicons";
 import {FiltoPipePipe} from "../../pipes/filto-pipe-pipe";
