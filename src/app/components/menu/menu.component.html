@@ -7,25 +7,40 @@
 
   <ion-content class="ion-padding">
     <ion-list lines="none">
-      <ion-item [button]="true" routerLink="/inicio">
-        <ion-icon name="home-outline" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item [button]="true" routerLink="/inicio">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
 
-      <ion-item [button]="true" routerLink="/categorias">
-        <ion-icon name="grid-outline" slot="start"></ion-icon>
-        <ion-label>Categorías</ion-label>
-      </ion-item>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item [button]="true" routerLink="/categorias">
+          <ion-icon name="grid-outline" slot="start"></ion-icon>
+          <ion-label>Categorías</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
 
-      <ion-item [button]="true" routerLink="/sostenibilidad">
-        <ion-icon name="leaf" slot="start"></ion-icon>
-        <ion-label>¡Dale una 2ª vida a tus libros!</ion-label>
-      </ion-item>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item [button]="true" routerLink="/sostenibilidad">
+          <ion-icon name="leaf" slot="start"></ion-icon>
+          <ion-label>¡Dale una 2ª vida a tus libros!</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
 
-      <ion-item [button]="true" routerLink="/info">
-        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-        <ion-label>Sobre BooksMatch</ion-label>
-      </ion-item>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item [button]="true" routerLink="/info">
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+          <ion-label>Sobre BooksMatch</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item [button]="true" (click)="cerrarSesion()" color="danger" class="logout-item">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
