@@ -35,7 +35,6 @@ import {gridOutline, homeOutline, informationCircleOutline, leaf, logOutOutline}
 export class MenuComponent  implements OnInit {
 
   constructor(private router: Router) {
-    // Añadimos los iconos para que Ionic los reconozca
     addIcons({  homeOutline,  gridOutline, leaf,  informationCircleOutline, logOutOutline });
   }
 

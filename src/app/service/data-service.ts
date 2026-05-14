@@ -8,7 +8,6 @@ import {Observable} from "rxjs";
 export class DataService {
   private http = inject(HttpClient);
   private apiUrl = 'https://api-libros-esmeralda.vercel.app/api/v1/libros/todos';
-  // Antes (solo funciona en tu PC)
 
 
   getLibros(): Observable<any[]> {

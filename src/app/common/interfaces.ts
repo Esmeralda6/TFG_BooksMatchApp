@@ -1,5 +1,5 @@
 export interface Libro {
-  _id: string; // Fíjate que en tu JSON viene con guion bajo
+  _id: string;
   titulo: string;
   autor: string;
   genero: string;
@@ -21,7 +21,6 @@ export interface Libro {
   imagen: string;
   disponible: boolean;
   descripcion: string;
-  // Propiedad opcional para nuestra lógica de la App
   matchScore?: number;
 }
 

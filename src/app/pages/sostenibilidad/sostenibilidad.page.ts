@@ -15,11 +15,10 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
 import {
   add,
   addCircle,
-  addCircleOutline,
   cameraOutline, cardOutline, closeOutline, locationOutline, lockClosedOutline,
   menuOutline, personCircleOutline,
   personOutline,
-  searchOutline, shieldCheckmarkOutline, trashOutline, searchCircle,
+  searchOutline, shieldCheckmarkOutline, trashOutline
 } from "ionicons/icons";
 import {addIcons} from "ionicons";
 import {FiltoPipePipe} from "../../pipes/filto-pipe-pipe";
